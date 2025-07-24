@@ -3,4 +3,3 @@ export {
 } from './fela.interface';
 export {createRules} from './createRules';
 export {useStyle} from './_hooks/useStyle';
-export {FelaRendererProvider} from './provider/felaRendererProvider';
