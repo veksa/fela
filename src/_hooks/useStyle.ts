@@ -1,4 +1,4 @@
-import {useRenderer} from './useRenderer';
+import {useFelaRenderer} from './useFelaRenderer';
 import {useTheme} from './useTheme';
 import {IClasses, ICachedStyle, AllowedExtendProps, IExtendRules} from '../fela.interface';
 import {useMemoWith} from './useMemoWith';
@@ -36,7 +36,7 @@ export function useStyle<S extends ICachedStyle<any, any, any, any>, Theme exten
     const [cachedStyle, props] = args;
 
     const {theme} = useTheme<Theme>();
-    const {renderer} = useRenderer();
+    const {renderer} = useFelaRenderer();
 
     const rules = cachedStyle.getRules(Object.assign((props ?? {}), {theme}), renderer);
     const css = cachedStyle.getClasses(Object.assign((props ?? {}), {theme}), renderer);

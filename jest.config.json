@@ -1,0 +1,13 @@
+{
+  "preset": "ts-jest",
+  "testEnvironment": "jsdom",
+  "testRegex": "\\.test\\.(ts|tsx)$",
+  "transformIgnorePatterns": [],
+  "moduleDirectories": [
+    "node_modules"
+  ],
+  "testPathIgnorePatterns": [
+    "/node_modules/",
+    "/.yarn/"
+  ]
+}

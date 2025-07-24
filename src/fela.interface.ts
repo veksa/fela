@@ -1,4 +1,4 @@
-import {IStyle} from 'fela';
+import {IRenderer, IStyle} from 'fela';
 
 export type IRules<Rules extends object, StyleKeys extends IStyle> = {
     [K in keyof Rules]: StyleKeys;
@@ -32,7 +32,7 @@ export type StyleProps<Props extends object, Rules extends object, Theme extends
     & AllowedExtendProps<Props, Rules, StyleKeys>
     & {theme: Theme};
 
-export type IFelaRenderer = {
+export type IFelaRenderer = Omit<IRenderer, 'renderRule'> & {
     renderRule(key: string, rule: IExtendRule<object>): string
 };
 

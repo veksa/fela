@@ -1,6 +1,6 @@
 {
   "name": "@veksa/fela",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "",
   "homepage": "https://github.com/veksa/fela",
   "packageManager": "yarn@4.9.2",
@@ -31,15 +31,20 @@
     "clean": "rimraf lib es dist",
     "build": "yarn clean && tsup",
     "compile": "tsc --noEmit",
+    "test": "jest",
     "prepublish": "yarn build"
   },
   "devDependencies": {
+    "@types/jest": "30.0.0",
     "@types/node": "24.1.0",
     "@types/react": "19.1.8",
     "fela": "12.2.1",
+    "jest": "30.0.5",
+    "jest-environment-jsdom": "30.0.5",
     "react": "19.1.0",
     "react-fela": "12.2.1",
     "rimraf": "6.0.1",
+    "ts-jest": "29.4.0",
     "tslib": "2.8.1",
     "tsup": "8.5.0",
     "typescript": "5.8.3"

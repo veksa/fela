@@ -1,7 +1,7 @@
 import {useContext} from 'react';
 import {FelaRendererContext} from '../renderer.context';
 
-export const useRenderer = () => {
+export const useFelaRenderer = () => {
     const renderer = useContext(FelaRendererContext);
 
     if (!renderer) {
