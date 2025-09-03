@@ -1,6 +1,6 @@
 import {useRenderer} from './useRenderer';
 import {useTheme} from './useTheme';
-import {IClasses, ICachedStyle, AllowedExtendProps, IExtendRules} from '../fela.interface';
+import {IClasses, ICachedStyle, AllowedExtendProps, IExtendRules, IRequiredTheme} from '../fela.interface';
 import {useMemoWith} from './useMemoWith';
 import {shallowEqual} from '../_helpers/shallowEqual';
 import {IStyle} from 'fela';
@@ -30,7 +30,7 @@ type RuleFnOutput<RuleFn> = RuleFn extends ICachedStyle<infer Rules, any, any, i
     ? IStylish<Rules, StyleKeys>
     : never;
 
-export function useStyle<S extends ICachedStyle<any, any, any, any>, Theme extends object>(
+export function useStyle<S extends ICachedStyle<any, any, any, any>, Theme extends IRequiredTheme>(
     ...args: RuleFnInput<S>
 ): RuleFnOutput<S> {
     const [cachedStyle, props] = args;

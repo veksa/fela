@@ -1,11 +1,20 @@
 import {normalizeStyleName} from './_helpers/normalizeStyleName';
 import {v4} from 'uuid';
-import {ICachedStyle, IRules, IClasses, StyleProps, IRuleFn, IExtendRules, IFelaRenderer} from './fela.interface';
+import {
+    ICachedStyle,
+    IClasses,
+    IExtendRules,
+    IFelaRenderer,
+    IRequiredTheme,
+    IRuleFn,
+    IRules,
+    StyleProps
+} from './fela.interface';
 import {keyStyleSelector} from './keyStyleSelector';
 import {combineRules} from './combineRules';
 import {IStyle} from 'fela';
 
-export function createRules<Props extends object, Rules extends object, Theme extends object, StyleKeys extends IStyle>(
+export function createRules<Props extends object, Rules extends object, Theme extends IRequiredTheme, StyleKeys extends IStyle>(
     ruleFn: IRuleFn<Rules, Props, Theme, StyleKeys>,
 ): ICachedStyle<Rules, Props, Theme, StyleKeys> {
     const id = v4();

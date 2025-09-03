@@ -1,5 +1,9 @@
 import {IRenderer, IStyle} from 'fela';
 
+export interface IRequiredTheme {
+    name: string;
+}
+
 export type IRules<Rules extends object, StyleKeys extends IStyle> = {
     [K in keyof Rules]: StyleKeys;
 };
@@ -28,7 +32,7 @@ export type AllowedExtendProps<Props extends object, Rules extends object, Style
     AllowedSimpleProps<Props>
     & {extend?: IExtend<Rules, StyleKeys>};
 
-export type StyleProps<Props extends object, Rules extends object, Theme extends object, StyleKeys extends IStyle> =
+export type StyleProps<Props extends object, Rules extends object, Theme extends IRequiredTheme, StyleKeys extends IStyle> =
     & AllowedExtendProps<Props, Rules, StyleKeys>
     & {theme: Theme};
 
@@ -36,7 +40,7 @@ export type IFelaRenderer = Omit<IRenderer, 'renderRule'> & {
     renderRule(key: string, rule: IExtendRule<object>): string
 };
 
-export interface IRuleFn<Rules extends object, Props extends object, Theme extends object, StyleKeys extends IStyle> {
+export interface IRuleFn<Rules extends object, Props extends object, Theme extends IRequiredTheme, StyleKeys extends IStyle> {
     (props: StyleProps<Props, Rules, Theme, StyleKeys>, renderer: IFelaRenderer): IRules<Rules, StyleKeys>;
 }
 
@@ -44,7 +48,7 @@ export type IClasses<Rules extends object = {}> = {
     [K in keyof Rules]: string;
 };
 
-export interface ICachedStyle<Rules extends object, Props extends object, Theme extends object, StyleKeys extends IStyle> {
+export interface ICachedStyle<Rules extends object, Props extends object, Theme extends IRequiredTheme, StyleKeys extends IStyle> {
     getRules: (props: StyleProps<Props, Rules, Theme, StyleKeys>, renderer: IFelaRenderer) => IExtend<Rules, StyleKeys>;
     getClasses: (props: StyleProps<Props, Rules, Theme, StyleKeys>, renderer: IFelaRenderer) => IClasses<Rules>;
 }
