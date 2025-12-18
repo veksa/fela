@@ -1,5 +1,5 @@
 export {
-    type IRuleFn, type IExtendProp, type IExtend, type IFelaRenderer, type IExtendRule, type ICachedStyle
+    type IFelaRuleFn, type IExtendProp, type IExtend, type IFelaRenderer, type IExtendRule, type ICachedStyle
 } from './fela.interface';
 export {createRules} from './createRules';
 export {useStyle} from './_hooks/useStyle';

@@ -40,7 +40,7 @@ export type IFelaRenderer = Omit<IRenderer, 'renderRule'> & {
     renderRule(key: string, rule: IExtendRule<object>): string
 };
 
-export interface IRuleFn<Rules extends object, Props extends object, Theme extends IRequiredTheme, StyleKeys extends IStyle> {
+export interface IFelaRuleFn<Rules extends object, Props extends object, Theme extends IRequiredTheme, StyleKeys extends IStyle> {
     (props: StyleProps<Props, Rules, Theme, StyleKeys>, renderer: IFelaRenderer): IRules<Rules, StyleKeys>;
 }
 

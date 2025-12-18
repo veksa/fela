@@ -6,7 +6,7 @@ import {
     IExtendRules,
     IFelaRenderer,
     IRequiredTheme,
-    IRuleFn,
+    IFelaRuleFn,
     IRules,
     StyleProps
 } from './fela.interface';
@@ -15,7 +15,7 @@ import {combineRules} from './combineRules';
 import {IStyle} from 'fela';
 
 export function createRules<Props extends object, Rules extends object, Theme extends IRequiredTheme, StyleKeys extends IStyle>(
-    ruleFn: IRuleFn<Rules, Props, Theme, StyleKeys>,
+    ruleFn: IFelaRuleFn<Rules, Props, Theme, StyleKeys>,
 ): ICachedStyle<Rules, Props, Theme, StyleKeys> {
     const id = v4();
 
